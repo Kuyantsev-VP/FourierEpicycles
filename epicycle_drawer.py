@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog, colorchooser
-from PIL import Image, ImageTk, ImageGrab
+from PIL import Image, ImageTk#, ImageGrab
 import io
-from util import getter, draw_outlined_point
+#from util import getter, draw_outlined_point
 import os
 import shutil
 from contour import Contour
