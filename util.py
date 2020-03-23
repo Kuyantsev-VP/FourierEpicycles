@@ -2,6 +2,8 @@ from typing import Iterable
 #from PIL import ImageGrab
 import tkinter as tk
 from tkinter import colorchooser, simpledialog
+import os
+import shutil
 
 INF = float('inf')
 
@@ -58,3 +60,11 @@ def draw_point(canvas, x, y, r=0.5, color='black', tag_name=''):
 def draw_outlined_point(canvas, x, y, r=0.5, color='black', outline_color='black', tag_name='', **kwargs):
     return canvas.create_oval(x - r, y - r, x + r, y + r, tag=tag_name, fill=color, outline=outline_color, **kwargs)
 
+def clear_folder(path):
+    files = os.listdir(path)
+    for file in files:
+        file_path = os.path.join(path, file)
+        if os.path.isfile(file_path) or os.path.islink(file_path):
+            os.unlink(file_path)
+        elif os.path.isdir(file_path):
+            shutil.rmtree(file_path)
